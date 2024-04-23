@@ -14,7 +14,9 @@ Fixed-income securities, such as bonds, are priced based on the timing and amoun
 [![Calc Yield CF](BondCalcYieldSnippet.PNG)](images/BondCalcYieldSnippet.png)
 4. Test different bond parameters 
 [![Calc Price Chart 2](BondCalcPriceChart2.PNG)](images/BondCalcPriceChart2.png)
-
+5. Input validation prevent crashes due to invalid inputs.
+[![Input Valid 1](InputValidation1.PNG)](images/InputValidation1.png)
+[![Input Valid 2](InputValidation2.PNG)](images/InputValidation2.png)
 
 
 ### Code Structure:
@@ -63,6 +65,18 @@ Where:
 5. Repeat steps 2-4 until the absolute difference between the calculated bond price and the market price is within a specified tolerance.
 
 These numerical methods allow for efficient calculation of bond prices and yields, considering the timing and amount of cash flows provided by the bond parameters.
+
+## Convergence Issues and Improvement Strategies:
+Convergence issues may arise during the approximation of bond yield (YTM) using the Newton-Raphson method. Strategies for improving convergence include:
+- **Robust Initial Guess**: Providing a reasonable initial guess for YTM based on market conventions or historical data.
+	- My initial guess for YTM expressed as a rate            
+	- ``` double estimatedYield = 0.1; ```
+
+- **Adaptive Methods**: Using adaptive techniques to adjust the step size or refine the initial guess based on the behavior of the function.
+	- In my code, I used a scalor factor which is a rouge estimation. Calculate the change in yield and scale. Before scaling, the delta wasn't small enough to update the estimated yield 
+	- ``` double delta = (priceError / priceDerivate) * .0001; ```
+- **Error Handling**: Handling exceptional cases gracefully, such as divergent iterations or non-convergence, by providing feedback to users and possibly adjusting input parameters.
+
 
 ### Contributions:
 Contributions to enhance the functionality or efficiency of the bond yield calculator are welcome. Feel free to fork this repository and submit pull requests with your changes.
