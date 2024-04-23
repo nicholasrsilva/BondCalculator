@@ -24,6 +24,41 @@ The core functionality of the bond yield calculator is implemented in the `Treas
 
 6. **CalculatePriceDerivative Method**: Calculates the derivative of the bond price with respect to the bond yield at each time period.
 
+### Calculating Bond Price:
+The bond price \( P \) can be calculated using the present value formula:
+
+\[
+P = \sum_{t=1}^{T} \frac{C}{(1 + r)^t} + \frac{F}{(1 + r)^T}
+\]
+
+Where:
+- \( C \) = Coupon payment
+- \( F \) = Face value of the bond
+- \( r \) = Yield to maturity (YTM)
+- \( T \) = Time until maturity in years
+
+### Approximating Bond Yield (YTM):
+The bond yield (YTM) \( r \) can be approximated using the Newton-Raphson method:
+
+1. Initialize an initial guess for YTM, denoted as \( r_0 \).
+2. Calculate the bond price \( P \) using the present value formula with the initial guess for YTM.
+3. Calculate the derivative of the bond price with respect to YTM, denoted as \( \frac{dP}{dr} \).
+4. Update the guess for YTM using the formula:
+
+\[
+r_1 = r_0 - \frac{P - M}{\frac{dP}{dr}}
+\]
+
+Where:
+- \( r_1 \) = Updated guess for YTM
+- \( M \) = Market price of the bond
+- \( P \) = Bond price calculated using the initial guess
+- \( \frac{dP}{dr} \) = Derivative of bond price with respect to YTM
+
+5. Repeat steps 2-4 until the absolute difference between the calculated bond price and the market price is within a specified tolerance.
+
+These numerical methods allow for efficient calculation of bond prices and yields, considering the timing and amount of cash flows provided by the bond parameters.
+
 ### Contributions:
 Contributions to enhance the functionality or efficiency of the bond yield calculator are welcome. Feel free to fork this repository and submit pull requests with your changes.
 
