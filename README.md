@@ -9,14 +9,14 @@ Fixed-income securities, such as bonds, are priced based on the timing and amoun
 1. Clone this repository to your local machine.
 2. Open the GUI interface and follow the provided images to input the necessary parameters such as cash flow, time until receipt, and the discount rate.
 3. Price and yield are inversley related with a tolerance of 1e-5.
-[![Calc Price Chart](BondCalcPriceChart.PNG)](images/BondCalcPriceChart.png)
-[![Calc Price Cash Flow ](BondCalcPriceSnippet.PNG)](images/BondCalcPriceSnippet.png)
-[![Calc Yield CF](BondCalcYieldSnippet.PNG)](images/BondCalcYieldSnippet.png)
+[![Calc Price Chart](images/BondCalcPriceChart.PNG)](images/BondCalcPriceChart.png)
+[![Calc Price Cash Flow ](images/BondCalcPriceSnippet.PNG)](images/BondCalcPriceSnippet.png)
+[![Calc Yield CF](images/BondCalcYieldSnippet.PNG)](images/BondCalcYieldSnippet.png)
 4. Test different bond parameters 
-[![Calc Price Chart 2](BondCalcPriceChart2.PNG)](images/BondCalcPriceChart2.png)
+[![Calc Price Chart 2](images/BondCalcPriceChart2.PNG)](images/BondCalcPriceChart2.png)
 5. Input validation prevent crashes due to invalid inputs.
-[![Input Valid 1](InputValidation1.PNG)](images/InputValidation1.png)
-[![Input Valid 2](InputValidation2.PNG)](images/InputValidation2.png)
+[![Input Valid 1](images/InputValidation1.PNG)](images/InputValidation1.png)
+[![Input Valid 2](images/InputValidation2.PNG)](images/InputValidation2.png)
 
 
 ### Code Structure:
