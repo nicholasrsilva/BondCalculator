@@ -3,7 +3,7 @@
 This repository contains a simple bond yield calculator that determines the present value of future cash flows from a bond, based on compound interest calculations and discount rates.
 
 ### Background:
-Fixed-income securities, such as bonds, are priced based on the timing and amount of cash flows they provide. Cash received sooner is more valuable than cash received later because it can be reinvested. This calculator utilizes compound interest calculations to discount future cash flows back to their present value, using a discount rate typically based on the prevailing interest rate.
+Fixed-income securities, such as bonds, are priced based on the timing and amount of cash flows they provide. Cash received sooner is more valuable than cash received later because it can be reinvested. This calculator utilizes compound interest calculations to discount future cash flows back to their present value.
 
 ### How to Use:
 1. Clone this repository to your local machine.
