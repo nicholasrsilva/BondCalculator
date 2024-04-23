@@ -1,4 +1,4 @@
-# Bond Yield Calculator
+﻿# Bond Yield Calculator
 
 This repository contains a simple bond yield calculator that determines the present value of future cash flows from a bond, based on compound interest calculations and discount rates.
 
@@ -8,6 +8,14 @@ Fixed-income securities, such as bonds, are priced based on the timing and amoun
 ### How to Use:
 1. Clone this repository to your local machine.
 2. Open the GUI interface and follow the provided images to input the necessary parameters such as cash flow, time until receipt, and the discount rate.
+3. Price and yield are inversley related with a tolerance of 1e-5.
+[![Calc Price Chart](BondCalcPriceChart.PNG)](images/BondCalcPriceChart.png)
+[![Calc Price Cash Flow ](BondCalcPriceSnippet.PNG)](images/BondCalcPriceSnippet.png)
+[![Calc Yield CF](BondCalcYieldSnippet.PNG)](images/BondCalcYieldSnippet.png)
+4. Test different bond parameters 
+[![Calc Price Chart 2](BondCalcPriceChart2.PNG)](images/BondCalcPriceChart2.png)
+
+
 
 ### Code Structure:
 The core functionality of the bond yield calculator is implemented in the `TreasuryCalculator` class within the `TreasuryCalculator.cs` file. Here's a summary of its main functionalities:
@@ -25,35 +33,32 @@ The core functionality of the bond yield calculator is implemented in the `Treas
 6. **CalculatePriceDerivative Method**: Calculates the derivative of the bond price with respect to the bond yield at each time period.
 
 ### Calculating Bond Price:
-The bond price \( P \) can be calculated using the present value formula:
+The bond price can be calculated using the present value formula:
 
-\[
-P = \sum_{t=1}^{T} \frac{C}{(1 + r)^t} + \frac{F}{(1 + r)^T}
-\]
+ P = ∑(C / (1 + r)^t) + (F / (1 + r)^T)
 
 Where:
-- \( C \) = Coupon payment
-- \( F \) = Face value of the bond
-- \( r \) = Yield to maturity (YTM)
-- \( T \) = Time until maturity in years
+- `C` = Coupon payment
+- `F` = Face value of the bond
+- `r` = Yield to maturity (YTM)
+- `T` = Time until maturity in years
 
-### Approximating Bond Yield (YTM):
-The bond yield (YTM) \( r \) can be approximated using the Newton-Raphson method:
-
-1. Initialize an initial guess for YTM, denoted as \( r_0 \).
-2. Calculate the bond price \( P \) using the present value formula with the initial guess for YTM.
-3. Calculate the derivative of the bond price with respect to YTM, denoted as \( \frac{dP}{dr} \).
+## Approximating Bond Yield (YTM):
+The bond yield (YTM) `r` can be approximated using the Newton-Raphson method:
+1. Initialize an initial guess for YTM, denoted as `r_0`.
+2. Calculate the bond price `P` using the present value formula with the initial guess for YTM.
+3. Calculate the derivative of the bond price with respect to YTM, denoted as `dP/dr`.
 4. Update the guess for YTM using the formula:
 
-\[
-r_1 = r_0 - \frac{P - M}{\frac{dP}{dr}}
-\]
+ r_1 = r_0 - (P - M) / (dP/dr)
+
+
 
 Where:
-- \( r_1 \) = Updated guess for YTM
-- \( M \) = Market price of the bond
-- \( P \) = Bond price calculated using the initial guess
-- \( \frac{dP}{dr} \) = Derivative of bond price with respect to YTM
+- `r_1`  = Updated guess for YTM
+- `M` = Market price of the bond
+- `P` = Bond price calculated using the initial guess
+- `dP/dr` = Derivative of bond price with respect to YTM
 
 5. Repeat steps 2-4 until the absolute difference between the calculated bond price and the market price is within a specified tolerance.
 
